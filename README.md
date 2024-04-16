@@ -2,29 +2,29 @@
 
 ## Description
 
-The Auto Meet Joining Project is a Python-based automation tool that seamlessly fetches Google Meet links from specified WhatsApp chats, logs into the meetings, and records them. This script uses Selenium WebDriver for browser automation to interact with WhatsApp Web, locate conversations, extract meet links, and launch a separate meet automation script.
-
+The Auto Meet Joining Project is a Python-based automation tool designed to fetch Google Meet links from specified WhatsApp chats, log into the meetings, and record them. This script utilizes Selenium WebDriver for browser automation to interact with WhatsApp Web, locate conversations, extract meet links, and initiate a separate script for meeting automation.
 
 ## Key Features
 
-- Fetch meet links directly from WhatsApp messages.
-- Record Google Meet sessions automatically.
-- Log into meetings with minimal manual intervention.
-- Utilize headless browser automation for seamless operation.
+- Automatically fetches Google Meet links from WhatsApp messages.
+- Records Google Meet sessions with minimal manual intervention.
+- Logs into meetings seamlessly.
+- Utilizes headless browser automation for unobtrusive operation.
 
 ## Prerequisites
 
-To run this script, you need to have the following installed:
+Ensure the following are installed to run this script:
   
 - Python 3.x
 - Google Chrome Browser
-- ChromeDriver compatible with your Chrome version
+- ChromeDriver (compatible with your Chrome version)
 
-Additionally, make sure you have the required Python packages installed by running:
+Install the required Python packages by running:
 
 ```bash
 pip install -r requirements.txt
 ```
+
 ## Installation
 
 Clone the repository to your local machine using:
@@ -77,15 +77,28 @@ Please Note: This script will assist you in creating a new Google account for th
 }
 
 ```
-Replace <Your New Google Account Email>, <New Account Password>, <Name of Your WhatsApp Chat>, <Path to Recorder Executable>, <Modifier Key>, and <Key> with the corresponding email address, password for the newly created Google account, name of the WhatsApp chat to scan for Google Meet links, path to your screen recording software executable, modifier key(s), and actual key(s) used to start and stop the recording, respectively.
+Replace the placeholders in the `config.json` file with actual values as follows:
 
-For example:
+- `<Your New Google Account Email>` with the email address of the new Google account.
+- `<New Account Password>` with the password for the newly created Google account.
+- `<Name of Your WhatsApp Chat>` with the name of the WhatsApp chat that contains the Google Meet links.
+- `<Path to Recorder Executable>` with the full path to your screen recording software's executable file.
+- `<Modifier Key>` and `<Key>` with the specific keys used to start and stop the recording, respectively.
 
-    ```json 
-    "path": "C:\\Program Files (x86)\\Icecream Screen Recorder 7\\recorder.exe" points to the Icecream Screen Recorder executable.
-    "start_recording_hotkey": ["ctrl", "r"] specifies that Ctrl+R starts the recording.
-    "stop_recording_hotkey": ["ctrl", "s"] specifies that Ctrl+S stops the recording.
-    ```
+For example, your configuration for the Icecream Screen Recorder might look like this:
+
+```json
+{
+    "gmail_id": "example@gmail.com",
+    "password": "securepassword123",
+    "chat_name": "Team Meetings",
+    "recorder": {
+        "path": "C:\\Program Files (x86)\\Icecream Screen Recorder\\recorder.exe",
+        "start_recording_hotkey": ["ctrl", "r"],
+        "stop_recording_hotkey": ["ctrl", "s"]
+    }
+}
+```
     
 4. Check for UI Changes: If you encounter errors related to finding the XPath or if a UI element is not located, it may be required to review and modify the XPaths used in the configuration. This can be done by running `run_webdriver.py`, logging into the web application, and utilizing developer tools to inspect the elements and extract their XPaths. Make the necessary changes to the `config.json` file to reflect these updates.
 
