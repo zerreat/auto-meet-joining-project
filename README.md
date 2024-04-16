@@ -89,11 +89,13 @@ Replace `<Your New Google Account Email>`, `<New Account Password>`, `<Name of Y
 For example:
 
     ```json 
-    "path": "C:\\Program Files (x86)\\Icecream Screen Recorder 7\\recorder.exe" points to the Icecream Screen Recorder executable.
-    "start_recording_hotkey": ["ctrl", "r"] 
+    {
+    "path": "C:\\Program Files (x86)\\Icecream Screen Recorder 7\\recorder.exe",
+    "start_recording_hotkey": ["ctrl", "r"],
     "stop_recording_hotkey": ["ctrl", "s"] 
+    }
     ```
-In this example, pressing `Ctrl+R` starts the recording and `Ctrl+S` stops it.
+In this example, `"C:\\Program Files (x86)\\Icecream Screen Recorder 7\\recorder.exe"` this points to the Icecream Screen Recorder executable.pressing `Ctrl+R` starts the recording and `Ctrl+S` stops it.
     
 4. Check for UI Changes: If you encounter errors related to finding the XPath or if a UI element is not located, it may be required to review and modify the XPaths used in the configuration. This can be done by running `run_webdriver.py`, logging into the web application, and utilizing developer tools to inspect the elements and extract their XPaths. Make the necessary changes to the `config.json` file to reflect these updates.
 
