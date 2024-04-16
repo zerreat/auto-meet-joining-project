@@ -1,8 +1,8 @@
 {
-    "gmail_id": "testzerreat1@gmail.com",
-    "password": "TEST_1@zerreat",
-    "meet_link": "https://meet.google.com/xtj-yrjx-pyq",
-    "chat_name": "Arpan",
+    "gmail_id": "<Your Gmail ID>",
+    "password": "<Your Gmail Password>",
+    "meet_link": "<It will fetch from your whatsapp chat_name>",
+    "chat_name": "<Name of Your WhatsApp Chat>",
     "sign_in_button_locator": "//*[@id=\"root\"]/div[1]/header/div[1]/div[3]/a[2]/span",
     "email_input_locator": "identifier",
     "next_button_identifier_locator": "//*[@id=\"identifierNext\"]/div/button/span",
