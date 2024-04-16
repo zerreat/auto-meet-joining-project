@@ -133,6 +133,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Acknowledgments
     
-    A special thanks to Selenium WebDriver contributors.
+    A special thanks 
+## GurrPratap Sangha my friend who motivated me to do his labour job. 
+    And thanks to Selenium WebDriver contributors.
 
     Gratitude towards the creators of Python and its rich ecosystem of packages.
