@@ -62,7 +62,9 @@ Please Note: This script will assist you in creating a new Google account for th
 
 2. Configure the WebDriver Account: Once your account is created, ensure that you only utilize it within the web driver context to avoid security issues.
 
-3. Update the `config.json` File: The `config.json` file must be updated with credentials from the newly created Google account, the name of the WhatsApp chat that contains the Google Meet links, and recorder settings including the path to your screen recording software and hotkeys to start and stop recording. This file can be found inside the `data` directory. If it doesn't exist, create it according to the following structure:
+3. Update the `config.json` File
+
+The `config.json` file contains essential configuration details and must be updated with credentials from your newly created Google account, the name of the WhatsApp chat that contains the Google Meet links, and settings for your screen recording software, including executable paths and hotkeys for starting and stopping the recording. This file is located in the `data` directory. If it doesn't exist, create one with the following structure:
 
 ```json
 {
@@ -75,30 +77,23 @@ Please Note: This script will assist you in creating a new Google account for th
         "stop_recording_hotkey": ["<Modifier Key>", "<Key>"]
     }
 }
-
 ```
-Replace the placeholders in the `config.json` file with actual values as follows:
+Replace `<Your New Google Account Email>`, `<New Account Password>`, `<Name of Your WhatsApp Chat>`, `<Path to Recorder Executable>`, `<Modifier Key>`, and `<Key>` with the appropriate details:
 
-- `<Your New Google Account Email>` with the email address of the new Google account.
-- `<New Account Password>` with the password for the newly created Google account.
-- `<Name of Your WhatsApp Chat>` with the name of the WhatsApp chat that contains the Google Meet links.
-- `<Path to Recorder Executable>` with the full path to your screen recording software's executable file.
-- `<Modifier Key>` and `<Key>` with the specific keys used to start and stop the recording, respectively.
+- Your New Google Account Email: Email address of the Google account.
+- New Account Password: Password of the newly created Google account.
+- Name of Your WhatsApp Chat: Name of the WhatsApp chat to scan for Google Meet links.
+- Path to Recorder Executable: File path to your screen recording software.
+- Modifier Key and Key: Keys used to initiate and end recording.
 
-For example, your configuration for the Icecream Screen Recorder might look like this:
+For example:
 
-```json
-{
-    "gmail_id": "example@gmail.com",
-    "password": "securepassword123",
-    "chat_name": "Team Meetings",
-    "recorder": {
-        "path": "C:\\Program Files (x86)\\Icecream Screen Recorder\\recorder.exe",
-        "start_recording_hotkey": ["ctrl", "r"],
-        "stop_recording_hotkey": ["ctrl", "s"]
-    }
-}
-```
+    ```json 
+    "path": "C:\\Program Files (x86)\\Icecream Screen Recorder 7\\recorder.exe" points to the Icecream Screen Recorder executable.
+    "start_recording_hotkey": ["ctrl", "r"] 
+    "stop_recording_hotkey": ["ctrl", "s"] 
+    ```
+In this example, pressing `Ctrl+R` starts the recording and `Ctrl+S` stops it.
     
 4. Check for UI Changes: If you encounter errors related to finding the XPath or if a UI element is not located, it may be required to review and modify the XPaths used in the configuration. This can be done by running `run_webdriver.py`, logging into the web application, and utilizing developer tools to inspect the elements and extract their XPaths. Make the necessary changes to the `config.json` file to reflect these updates.
 
