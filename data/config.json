@@ -1,0 +1,23 @@
+{
+    "gmail_id": "testzerreat1@gmail.com",
+    "password": "TEST_1@zerreat",
+    "meet_link": "https://meet.google.com/xtj-yrjx-pyq",
+    "chat_name": "Arpan",
+    "sign_in_button_locator": "//*[@id=\"root\"]/div[1]/header/div[1]/div[3]/a[2]/span",
+    "email_input_locator": "identifier",
+    "next_button_identifier_locator": "//*[@id=\"identifierNext\"]/div/button/span",
+    "password_input_locator": "Passwd",
+    "next_button_password_locator": "//*[@id=\"passwordNext\"]/div/button/span",
+    "link_input_locator": "//*[@id=\"i8\"]",
+    "mute_button_locator": "//*[@id=\"yDmH0d\"]/div[3]/div[2]/div/div/div/div/div[2]/div/div[2]/button/span",
+    "join_button_locator": "//*[@id=\"yDmH0d\"]/c-wiz/div/div[4]/div[1]/div/div[1]/div[3]/div/div[2]/div[2]/button/span",
+    "join_now_button_locator": "//*[@id=\"yDmH0d\"]/c-wiz/div/div/div[25]/div[3]/div/div[2]/div[4]/div/div/div[2]/div[1]/div[2]/div[1]/div[1]/button/span",
+    "meeting_ui_element_locator": "//*[@id=\"yDmH0d\"]/c-wiz/div/div/div[24]/div[3]/div[10]/div/div/div[3]/div/div[3]/div/div/span/button/i[1]",
+    "xpath_1": "//*[@id='yDmH0d']/c-wiz/div/div/div[1]/div/div/button/span",
+    "xpath_2": "//span[@jsname='V67aGc' and contains(@class,'VfPpkd-vQzf8d') and text()='Return to home screen']",
+    "recorder": {
+        "path": "C:\\Program Files (x86)\\Icecream Screen Recorder 7\\recorder.exe",
+        "start_recording_hotkey": ["ctrl", "r"],
+        "stop_recording_hotkey": ["ctrl", "s"]
+      }
+}
