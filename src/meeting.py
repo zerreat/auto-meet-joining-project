@@ -1,11 +1,6 @@
 # Import necessary modules for the script's functionality
 from selenium import webdriver  # Provides WebDriver base class needed to instantiate a new browser.
-from selenium.common.exceptions import (
-    ValueError,
-    TimeoutException,
-    NoSuchWindowException,
-    Exception
-)  # To catch timeouts during wait periods.
+from selenium.common.exceptions import TimeoutException, NoSuchWindowException  # To catch timeouts during wait periods.
 from selenium.webdriver.support.ui import WebDriverWait  # Enables use of WebDriverWait.
 from selenium.webdriver.common.by import By  # For locating elements by their HTML attributes.
 from selenium.webdriver.support import expected_conditions as EC  # Allows waiting for certain conditions.
@@ -94,9 +89,6 @@ def get_num_participants(driver):
     except NoSuchWindowException:
         print("The window was closed manually or has otherwise become unavailable.")
         return 0  # Return 0 if the window is not available.
-
-    except ValueError as e:
-        print(f"Value error: {e}")  # Handle and print errors related to value conversion.
 
     except TimeoutException:
         print("Timed out waiting for the participants count to appear.")  # Print message on timeout.

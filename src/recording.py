@@ -34,8 +34,7 @@ def start_recording():
 
         # The function from 'utils' attempts to find and activate the Google Meet window where the recording should take place.
         # If it fails to do so, the function returns early and no further actions are taken.
-        if not activate_meet_window_by_click():
-            return  # If activation of the Meet window fails, exit the function.
+        activate_meet_window_by_click()# If activation of the Meet window fails, exit the function.
 
         # Additional delay to ensure the recording has started before continuing with other actions.
         time.sleep(5)
