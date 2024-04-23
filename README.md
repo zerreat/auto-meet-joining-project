@@ -80,20 +80,20 @@ Before running the script, there are a few preparatory steps necessary to ensure
    Ensure that the path to `chromedriver` is correct and it matches the location where the executable is stored. Once this step is completed, Selenium WebDriver will be able to use Chrome for automated tasks.
 
 2. ### **Create a New Google Account**: 
-Run the `run_webdriver.py` script to initiate an automated Google account creation process:
+    Run the `run_webdriver.py` script to initiate an automated Google account creation process:
 
 ```bash
 python run_webdriver.py
 ```
 
-Please Note: This script will assist you in creating a new Google account for this project. It is strongly recommended that you only use this account with the WebDriver and not for personal activities, as Google does not allow automated logins for accounts due to security policies. There is a risk associated with creating any account automatically, and by doing so, you acknowledge that you take full responsibility for any repercussions.
+    Please Note: This script will assist you in creating a new Google account for this project. It is strongly recommended that you only use this account with the WebDriver and not for personal activities, as Google does not allow automated logins for accounts due to security policies. There is a risk associated with creating any account automatically, and by doing so, you acknowledge that you take full responsibility for any repercussions.
 
 3. ### **Configure the WebDriver Account**:
-Once your account is created, ensure that you only utilize it within the web driver context to avoid security issues.
+    Once your account is created, ensure that you only utilize it within the web driver context to avoid security issues.
 
 4. ### **Update the `config.json` File**
 
-The `config.json` file contains essential configuration details and must be updated with credentials from your newly created Google account, the name of the WhatsApp chat that contains the Google Meet links, and settings for your screen recording software, including executable paths and hotkeys for starting and stopping the recording. This file is located in the `data` directory. If it doesn't exist, create one with the following structure:
+    The `config.json` file contains essential configuration details and must be updated with credentials from your newly created Google account, the name of the WhatsApp chat that contains the Google Meet links, and settings for your screen recording software, including executable paths and hotkeys for starting and stopping the recording. This file is located in the `data` directory. If it doesn't exist, create one with the following structure:
 
 ```json
 {
@@ -107,15 +107,15 @@ The `config.json` file contains essential configuration details and must be upda
     }
 }
 ```
-Replace `<Your New Google Account Email>`, `<New Account Password>`, `<Name of Your WhatsApp Chat>`, `<Path to Recorder Executable>`, `<Modifier Key>`, and `<Key>` with the appropriate details:
+    Replace `<Your New Google Account Email>`, `<New Account Password>`, `<Name of Your WhatsApp Chat>`, `<Path to Recorder Executable>`, `<Modifier Key>`, and `<Key>` with the appropriate details:
 
-- Your New Google Account Email: Email address of the Google account.
-- New Account Password: Password of the newly created Google account.
-- Name of Your WhatsApp Chat: Name of the WhatsApp chat to scan for Google Meet links.
-- Path to Recorder Executable: File path to your screen recording software.
-- Modifier Key and Key: Keys used to initiate and end recording.
+    - Your New Google Account Email: Email address of the Google account.
+    - New Account Password: Password of the newly created Google account.
+    - Name of Your WhatsApp Chat: Name of the WhatsApp chat to scan for Google Meet links.
+    - Path to Recorder Executable: File path to your screen recording software.
+    - Modifier Key and Key: Keys used to initiate and end recording.
 
-For example:
+    For example:
 
 ```json 
 {
@@ -124,39 +124,40 @@ For example:
 "stop_recording_hotkey": ["ctrl", "s"] 
 }
 ```
-In this example, `"C:\\Program Files (x86)\\Icecream Screen Recorder 7\\recorder.exe"` this points to the Icecream Screen Recorder executable.pressing `Ctrl+R` starts the recording and `Ctrl+S` stops it.
+    In this example, `"C:\\Program Files (x86)\\Icecream Screen Recorder 7\\recorder.exe"` this points to the Icecream Screen Recorder executable.pressing `Ctrl+R` starts the recording and `Ctrl+S` stops it.
 
 5. ### **Meeting Admission Wait Time**: 
-To enhance the efficiency and user experience during the admission process to online meetings, our `meeting.py` script offers customizable settings. These settings allow you to define how long the system should wait for a participant's admission and the frequency of admission checks.
+    To enhance the efficiency and user experience during the admission process to online meetings, our `meeting.py` script offers customizable settings. These settings allow you to define how long the system should wait for a participant's admission and the frequency of admission checks.
 
-You have control over two significant variables within the script:
-#### `max_wait_time`
-This parameter specifies the maximum duration (in seconds) the system will wait for an attendee to be admitted into a meeting. By default, it is set to `300 seconds` (5 minutes). Increasing this value may be helpful if participants are experiencing longer wait times.
+    You have control over two significant variables within the script:
+    #### `max_wait_time`
+    This parameter specifies the maximum duration (in seconds) the system will wait for an attendee to be admitted into a meeting. By default, it is set to `300 seconds` (5 minutes). Increasing this value may be helpful if participants are experiencing longer wait times.
 
-#### `wait_interval`
-The interval between each check for meeting admission status (in seconds). By default, the checking interval is every `10 seconds`. Decreasing this time may lead to quicker updates on admission status but might increase the load due to more frequent checks.
+    #### `wait_interval`
+    The interval between each check for meeting admission status (in seconds). By default, the checking interval is every `10 seconds`. Decreasing this time may lead to quicker updates on admission status but might increase the load due to more frequent checks.
 
-#### Applying Configurations: Step-by-Step Instructions
+    #### Applying Configurations: Step-by-Step Instructions
 
-1. **Locate the Script**: Open the `meeting.py` file in your preferred text editor.
+    1. **Locate the Script**: Open the `meeting.py` file in your preferred text editor.
 
-2. **Find Configuration Variables**: Search for the `max_wait_time` and `wait_interval` variables within the script.
+    2. **Find Configuration Variables**: Search for the `max_wait_time` and `wait_interval` variables within the script.
 
-3. **Edit Values**: Change the values of these variables to match your desired configuration. For example:
+    3. **Edit Values**: Change the values of these variables to match your desired configuration. For example:
 
     ```python
     max_wait_time = 600  # Sets max wait time to 600 seconds (10 minutes)
     wait_interval = 5    # Sets the check interval to 5 seconds
     ```
 
-4. **Save Changes**: Make sure to save the updated `meeting.py` script after editing.
+    4. **Save Changes**: Make sure to save the updated `meeting.py` script after editing.
 
-5. **Run the Script**: Execute the modified script for the new settings to take effect.
+    5. **Run the Script**: Execute the modified script for the new settings to take effect.
 
-By customizing `max_wait_time` and `wait_interval`, you can optimize the admission process according to specific needs or preferences, ensuring a smooth experience for both hosts and attendees of your online meetings.
+    By customizing `max_wait_time` and `wait_interval`, you can optimize the admission process according to specific needs or preferences, ensuring a smooth experience for both hosts and attendees of your online meetings.
     
 6. ### **Check for UI Changes**: 
-If you encounter errors related to finding the XPath or if a UI element is not located, it may be required to review and modify the XPaths used in the configuration. This can be done by running `run_webdriver.py`, logging into the web application, and utilizing developer tools to inspect the elements and extract their XPaths. Make the necessary changes to the `config.json` file to reflect these updates.
+
+    If you encounter errors related to finding the XPath or if a UI element is not located, it may be required to review and modify the XPaths used in the configuration. This can be done by running `run_webdriver.py`, logging into the web application, and utilizing developer tools to inspect the elements and extract their XPaths. Make the necessary changes to the `config.json` file to reflect these updates.
 
 ## Disclaimer
 
