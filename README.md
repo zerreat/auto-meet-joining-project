@@ -51,7 +51,7 @@ We are currently working on a new feature that will allow users to directly log 
 
 Before running the script, there are a few preparatory steps necessary to ensure the software functions properly:
 
-1. ###**Chrome WebDriver:**
+1. ### **Chrome WebDriver:**
    - Download the appropriate version of Chrome WebDriver based on the version of Google Chrome installed on your computer. To find your Chrome version, go to `chrome://settings/help` in your browser.
    - Visit [ChromeDriver - WebDriver for Chrome](https://sites.google.com/chromium.org/driver/) to download the corresponding version of ChromeDriver.
    - After downloading, extract the executable file (`chromedriver.exe` on Windows) to a known directory on your system, such as `C:\WebDriver\bin`.
@@ -79,7 +79,7 @@ Before running the script, there are a few preparatory steps necessary to ensure
 
    Ensure that the path to `chromedriver` is correct and it matches the location where the executable is stored. Once this step is completed, Selenium WebDriver will be able to use Chrome for automated tasks.
 
-2. ###**Create a New Google Account**: 
+2. ### **Create a New Google Account**: 
 Run the `run_webdriver.py` script to initiate an automated Google account creation process:
 
 ```bash
@@ -88,10 +88,10 @@ python run_webdriver.py
 
 Please Note: This script will assist you in creating a new Google account for this project. It is strongly recommended that you only use this account with the WebDriver and not for personal activities, as Google does not allow automated logins for accounts due to security policies. There is a risk associated with creating any account automatically, and by doing so, you acknowledge that you take full responsibility for any repercussions.
 
-3. ###**Configure the WebDriver Account**:
+3. ### **Configure the WebDriver Account**:
 Once your account is created, ensure that you only utilize it within the web driver context to avoid security issues.
 
-4. ###**Update the `config.json` File**
+4. ### **Update the `config.json` File**
 
 The `config.json` file contains essential configuration details and must be updated with credentials from your newly created Google account, the name of the WhatsApp chat that contains the Google Meet links, and settings for your screen recording software, including executable paths and hotkeys for starting and stopping the recording. This file is located in the `data` directory. If it doesn't exist, create one with the following structure:
 
@@ -126,7 +126,7 @@ For example:
 ```
 In this example, `"C:\\Program Files (x86)\\Icecream Screen Recorder 7\\recorder.exe"` this points to the Icecream Screen Recorder executable.pressing `Ctrl+R` starts the recording and `Ctrl+S` stops it.
 
-5. ###**Meeting Admission Wait Time**: 
+5. ### **Meeting Admission Wait Time**: 
 To enhance the efficiency and user experience during the admission process to online meetings, our `meeting.py` script offers customizable settings. These settings allow you to define how long the system should wait for a participant's admission and the frequency of admission checks.
 
 You have control over two significant variables within the script:
@@ -155,7 +155,7 @@ The interval between each check for meeting admission status (in seconds). By de
 
 By customizing `max_wait_time` and `wait_interval`, you can optimize the admission process according to specific needs or preferences, ensuring a smooth experience for both hosts and attendees of your online meetings.
     
-6. ###**Check for UI Changes**: 
+6. ### **Check for UI Changes**: 
 If you encounter errors related to finding the XPath or if a UI element is not located, it may be required to review and modify the XPaths used in the configuration. This can be done by running `run_webdriver.py`, logging into the web application, and utilizing developer tools to inspect the elements and extract their XPaths. Make the necessary changes to the `config.json` file to reflect these updates.
 
 ## Disclaimer
