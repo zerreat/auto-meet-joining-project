@@ -47,6 +47,42 @@ pip install -r requirements.txt
 
 We are currently working on a new feature that will allow users to directly log in using Google OAuth 2.0 `credentials.json`. This upcoming update will facilitate the process of obtaining a token and subsequently using it to interact with Google Meet. Please note that this feature is a work in progress, and it might take some time before it becomes available. We appreciate your patience and look forward to bringing you this enhancement.
 
+## Required Configuration
+
+1. **Chrome WebDriver:**
+   - Download the appropriate version of Chrome WebDriver based on the version of Google Chrome installed on your computer. To find your Chrome version, go to `chrome://settings/help` in your browser.
+   - Visit [ChromeDriver - WebDriver for Chrome](https://sites.google.com/chromium.org/driver/) to download the corresponding version of ChromeDriver.
+   - After downloading, extract the executable file (`chromedriver.exe` on Windows) to a known directory on your system, such as `C:\WebDriver\bin`.
+
+   ### Setting the Chrome WebDriver Path:
+   In order for the automation script to interact with the Chrome browser, it is necessary to add the path to the Chrome WebDriver executable to your system's environment variables:
+
+   #### For Windows:
+   1. Right-click on 'This PC' or 'Computer' on the desktop or in File Explorer.
+   2. Click on 'Properties'.
+   3. Select 'Advanced system settings'.
+   4. On the System Properties dialog that appears, click on the 'Environment Variables...' button.
+   5. Under the 'System variables' section, scroll to find the 'Path' variable and select it.
+   6. Click 'Edit...'.
+   7. In the 'Edit Environment Variable' dialog, click 'New' and add the path where your ChromeDriver is located, e.g., `C:\WebDriver\bin`.
+   8. Click 'OK' to close each of the dialogs.
+
+   #### For macOS/Linux:
+   1. Open a terminal window.
+   2. Use the `export` command to set the PATH variable:
+      ```bash
+      export PATH=$PATH:/path/to/directory/containing/chromedriver
+      ```
+   3. To make this change permanent, add the export command to your shell profile file (e.g., `.bash_profile`, `.zshrc`, `.bashrc`).
+
+   Ensure that the path to `chromedriver` is correct and it matches the location where the executable is stored. Once this step is completed, Selenium WebDriver will be able to use Chrome for automated tasks.
+
+2. **Meeting Admission Wait Time:** The `meeting.py` file contains logic to periodically check for meeting admission every 10 seconds for up to 300 seconds. If you wish to customize this wait time or the interval between checks, you can edit the `max_wait_time` and `wait_interval` values in the `meeting.py` file to suit your needs.
+
+    - `max_wait_time`: Maximum wait time (in seconds) for being admitted to the meeting.
+    - `wait_interval`: Time (in seconds) between checks for admission.
+
+In order to apply these configurations, proceed to directly modify the relevant sections within the `meeting.py` script.
 
 ## Configuration
 
