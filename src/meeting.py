@@ -4,6 +4,7 @@ from selenium.common.exceptions import TimeoutException, NoSuchWindowException  
 from selenium.webdriver.support.ui import WebDriverWait  # Enables use of WebDriverWait.
 from selenium.webdriver.common.by import By  # For locating elements by their HTML attributes.
 from selenium.webdriver.support import expected_conditions as EC  # Allows waiting for certain conditions.
+import time
 
 def setup_driver(config):
     """Setup Chrome WebDriver with hardcoded options."""
@@ -60,8 +61,29 @@ def login_to_google_meet(driver, config):
         wait.until(EC.element_to_be_clickable((By.XPATH, config['mute_button_locator']))).click()
         wait.until(EC.element_to_be_clickable((By.XPATH, config['join_now_button_locator']))).click()
 
-        # Confirm successful join by checking visibility of a UI element specific to the meeting page.
-        wait.until(EC.visibility_of_element_located((By.XPATH, config['meeting_ui_element_locator'])))
+        # Loop to check for admission into the meeting every 10 seconds
+        admitted = False
+        start_time = time.time()
+        max_wait_time = 300  # Maximum wait time (in seconds) for being admitted to the meeting
+        wait_interval = 10   # Time interval between checks
+
+        # Initialize WebDriverWait with a specified interval
+        wait = WebDriverWait(driver, wait_interval)
+
+        while not admitted and (time.time() - start_time) < max_wait_time:
+            try:
+                print("Checking if admitted to the meeting...")
+                # Adjust the waiting time if necessary depending on the responsiveness of the page
+                wait.until(EC.visibility_of_element_located((By.XPATH, config['meeting_ui_element_locator'])))
+                print("Element found: admitted to the meeting!")
+                admitted = True
+            except TimeoutException:
+                # Print the attempt and wait for 10 seconds before checking again
+                print(f"Attempt unsuccessful. Trying again in {wait_interval} seconds...")
+                time.sleep(wait_interval)
+
+        if not admitted:
+            raise TimeoutException("Timed out waiting for admission into the meeting.")
         
         print("Joined the meeting successfully.")
 

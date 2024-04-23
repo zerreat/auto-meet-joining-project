@@ -2,7 +2,6 @@ import time
 from utils import *  # Import all utility functions
 from recording import *  # Import all recording-related functions
 from meeting import *  # Import all meeting-related functions
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import WebDriverException, NoSuchWindowException
 
 def main():

@@ -1,4 +1,4 @@
-import json# For parsing JSON files.
+import json # For parsing JSON files.
 import time  
 import pyautogui  # Import the pyautogui library for GUI automation tasks like mouse and keyboard control
 from selenium.webdriver.support.ui import WebDriverWait  # Import WebDriverWait for waiting for elements to load
