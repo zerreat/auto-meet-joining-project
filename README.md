@@ -47,7 +47,9 @@ pip install -r requirements.txt
 
 We are currently working on a new feature that will allow users to directly log in using Google OAuth 2.0 `credentials.json`. This upcoming update will facilitate the process of obtaining a token and subsequently using it to interact with Google Meet. Please note that this feature is a work in progress, and it might take some time before it becomes available. We appreciate your patience and look forward to bringing you this enhancement.
 
-## Required Configuration
+## Configuration
+
+Before running the script, there are a few preparatory steps necessary to ensure the software functions properly:
 
 1. **Chrome WebDriver:**
    - Download the appropriate version of Chrome WebDriver based on the version of Google Chrome installed on your computer. To find your Chrome version, go to `chrome://settings/help` in your browser.
@@ -77,18 +79,7 @@ We are currently working on a new feature that will allow users to directly log 
 
    Ensure that the path to `chromedriver` is correct and it matches the location where the executable is stored. Once this step is completed, Selenium WebDriver will be able to use Chrome for automated tasks.
 
-2. **Meeting Admission Wait Time:** The `meeting.py` file contains logic to periodically check for meeting admission every 10 seconds for up to 300 seconds. If you wish to customize this wait time or the interval between checks, you can edit the `max_wait_time` and `wait_interval` values in the `meeting.py` file to suit your needs.
-
-    - `max_wait_time`: Maximum wait time (in seconds) for being admitted to the meeting.
-    - `wait_interval`: Time (in seconds) between checks for admission.
-
-In order to apply these configurations, proceed to directly modify the relevant sections within the `meeting.py` script.
-
-## Configuration
-
-Before running the script, there are a few preparatory steps necessary to ensure the software functions properly:
-
-1. Create a New Google Account: Run the `run_webdriver.py` script to initiate an automated Google account creation process:
+2. **Create a New Google Account**: Run the `run_webdriver.py` script to initiate an automated Google account creation process:
 
 ```bash
 python run_webdriver.py
@@ -96,9 +87,9 @@ python run_webdriver.py
 
 Please Note: This script will assist you in creating a new Google account for this project. It is strongly recommended that you only use this account with the WebDriver and not for personal activities, as Google does not allow automated logins for accounts due to security policies. There is a risk associated with creating any account automatically, and by doing so, you acknowledge that you take full responsibility for any repercussions.
 
-2. Configure the WebDriver Account: Once your account is created, ensure that you only utilize it within the web driver context to avoid security issues.
+3.** Configure the WebDriver Account**: Once your account is created, ensure that you only utilize it within the web driver context to avoid security issues.
 
-3. Update the `config.json` File
+4. **Update the `config.json` File**
 
 The `config.json` file contains essential configuration details and must be updated with credentials from your newly created Google account, the name of the WhatsApp chat that contains the Google Meet links, and settings for your screen recording software, including executable paths and hotkeys for starting and stopping the recording. This file is located in the `data` directory. If it doesn't exist, create one with the following structure:
 
@@ -132,8 +123,36 @@ For example:
 }
 ```
 In this example, `"C:\\Program Files (x86)\\Icecream Screen Recorder 7\\recorder.exe"` this points to the Icecream Screen Recorder executable.pressing `Ctrl+R` starts the recording and `Ctrl+S` stops it.
+
+5. **Meeting Admission Wait Time:** To enhance the efficiency and user experience during the admission process to online meetings, our `meeting.py` script offers customizable settings. These settings allow you to define how long the system should wait for a participant's admission and the frequency of admission checks.
+
+You have control over two significant variables within the script:
+### `max_wait_time`
+This parameter specifies the maximum duration (in seconds) the system will wait for an attendee to be admitted into a meeting. By default, it is set to `300 seconds` (5 minutes). Increasing this value may be helpful if participants are experiencing longer wait times.
+
+### `wait_interval`
+The interval between each check for meeting admission status (in seconds). By default, the checking interval is every `10 seconds`. Decreasing this time may lead to quicker updates on admission status but might increase the load due to more frequent checks.
+
+## Applying Configurations: Step-by-Step Instructions
+
+1. **Locate the Script**: Open the `meeting.py` file in your preferred text editor.
+
+2. **Find Configuration Variables**: Search for the `max_wait_time` and `wait_interval` variables within the script.
+
+3. **Edit Values**: Change the values of these variables to match your desired configuration. For example:
+
+    ```python
+    max_wait_time = 600  # Sets max wait time to 600 seconds (10 minutes)
+    wait_interval = 5    # Sets the check interval to 5 seconds
+    ```
+
+4. **Save Changes**: Make sure to save the updated `meeting.py` script after editing.
+
+5. **Run the Script**: Execute the modified script for the new settings to take effect.
+
+By customizing `max_wait_time` and `wait_interval`, you can optimize the admission process according to specific needs or preferences, ensuring a smooth experience for both hosts and attendees of your online meetings.
     
-4. Check for UI Changes: If you encounter errors related to finding the XPath or if a UI element is not located, it may be required to review and modify the XPaths used in the configuration. This can be done by running `run_webdriver.py`, logging into the web application, and utilizing developer tools to inspect the elements and extract their XPaths. Make the necessary changes to the `config.json` file to reflect these updates.
+6. **Check for UI Changes**: If you encounter errors related to finding the XPath or if a UI element is not located, it may be required to review and modify the XPaths used in the configuration. This can be done by running `run_webdriver.py`, logging into the web application, and utilizing developer tools to inspect the elements and extract their XPaths. Make the necessary changes to the `config.json` file to reflect these updates.
 
 ## Disclaimer
 
