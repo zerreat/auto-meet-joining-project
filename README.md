@@ -51,7 +51,7 @@ We are currently working on a new feature that will allow users to directly log 
 
 Before running the script, there are a few preparatory steps necessary to ensure the software functions properly:
 
-1. ### **Chrome WebDriver:**
+### **1. Chrome WebDriver:**
    - Download the appropriate version of Chrome WebDriver based on the version of Google Chrome installed on your computer. To find your Chrome version, go to `chrome://settings/help` in your browser.
    - Visit [ChromeDriver - WebDriver for Chrome](https://sites.google.com/chromium.org/driver/) to download the corresponding version of ChromeDriver.
    - After downloading, extract the executable file (`chromedriver.exe` on Windows) to a known directory on your system, such as `C:\WebDriver\bin`.
