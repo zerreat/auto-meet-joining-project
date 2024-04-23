@@ -51,7 +51,8 @@ We are currently working on a new feature that will allow users to directly log 
 
 Before running the script, there are a few preparatory steps necessary to ensure the software functions properly:
 
-### **1. Chrome WebDriver:**
+1. ### **Chrome WebDriver:**
+
    - Download the appropriate version of Chrome WebDriver based on the version of Google Chrome installed on your computer. To find your Chrome version, go to `chrome://settings/help` in your browser.
    - Visit [ChromeDriver - WebDriver for Chrome](https://sites.google.com/chromium.org/driver/) to download the corresponding version of ChromeDriver.
    - After downloading, extract the executable file (`chromedriver.exe` on Windows) to a known directory on your system, such as `C:\WebDriver\bin`.
@@ -80,33 +81,35 @@ Before running the script, there are a few preparatory steps necessary to ensure
    Ensure that the path to `chromedriver` is correct and it matches the location where the executable is stored. Once this step is completed, Selenium WebDriver will be able to use Chrome for automated tasks.
 
 2. ### **Create a New Google Account**: 
+
     Run the `run_webdriver.py` script to initiate an automated Google account creation process:
 
-```bash
-python run_webdriver.py
-```
+    ```bash
+    python run_webdriver.py
+    ```
 
     Please Note: This script will assist you in creating a new Google account for this project. It is strongly recommended that you only use this account with the WebDriver and not for personal activities, as Google does not allow automated logins for accounts due to security policies. There is a risk associated with creating any account automatically, and by doing so, you acknowledge that you take full responsibility for any repercussions.
 
 3. ### **Configure the WebDriver Account**:
+
     Once your account is created, ensure that you only utilize it within the web driver context to avoid security issues.
 
 4. ### **Update the `config.json` File**
 
     The `config.json` file contains essential configuration details and must be updated with credentials from your newly created Google account, the name of the WhatsApp chat that contains the Google Meet links, and settings for your screen recording software, including executable paths and hotkeys for starting and stopping the recording. This file is located in the `data` directory. If it doesn't exist, create one with the following structure:
 
-```json
-{
-    "gmail_id": "<Your New Google Account Email>",
-    "password": "<New Account Password>",
-    "chat_name": "<Name of Your WhatsApp Chat>",
-    "recorder": {
-        "path": "<Path to Recorder Executable>",
-        "start_recording_hotkey": ["<Modifier Key>", "<Key>"],
-        "stop_recording_hotkey": ["<Modifier Key>", "<Key>"]
+    ```json
+    {
+        "gmail_id": "<Your New Google Account Email>",
+        "password": "<New Account Password>",
+        "chat_name": "<Name of Your WhatsApp Chat>",
+        "recorder": {
+            "path": "<Path to Recorder Executable>",
+            "start_recording_hotkey": ["<Modifier Key>", "<Key>"],
+            "stop_recording_hotkey": ["<Modifier Key>", "<Key>"]
+        }
     }
-}
-```
+    ```
     Replace `<Your New Google Account Email>`, `<New Account Password>`, `<Name of Your WhatsApp Chat>`, `<Path to Recorder Executable>`, `<Modifier Key>`, and `<Key>` with the appropriate details:
 
     - Your New Google Account Email: Email address of the Google account.
@@ -117,13 +120,13 @@ python run_webdriver.py
 
     For example:
 
-```json 
-{
-"path": "C:\\Program Files (x86)\\Icecream Screen Recorder 7\\recorder.exe",
-"start_recording_hotkey": ["ctrl", "r"],
-"stop_recording_hotkey": ["ctrl", "s"] 
-}
-```
+    ```json 
+    {
+    "path": "C:\\Program Files (x86)\\Icecream Screen Recorder 7\\recorder.exe",
+    "start_recording_hotkey": ["ctrl", "r"],
+    "stop_recording_hotkey": ["ctrl", "s"] 
+    }
+    ```
     In this example, `"C:\\Program Files (x86)\\Icecream Screen Recorder 7\\recorder.exe"` this points to the Icecream Screen Recorder executable.pressing `Ctrl+R` starts the recording and `Ctrl+S` stops it.
 
 5. ### **Meeting Admission Wait Time**: 
@@ -149,11 +152,13 @@ python run_webdriver.py
     wait_interval = 5    # Sets the check interval to 5 seconds
     ```
 
-    4. **Save Changes**: Make sure to save the updated `meeting.py` script after editing.
+    4. **Save Changes**: 
+        Make sure to save the updated `meeting.py` script after editing.
 
-    5. **Run the Script**: Execute the modified script for the new settings to take effect.
+    5. **Run the Script**: 
+        Execute the modified script for the new settings to take effect.
 
-    By customizing `max_wait_time` and `wait_interval`, you can optimize the admission process according to specific needs or preferences, ensuring a smooth experience for both hosts and attendees of your online meetings.
+        By customizing `max_wait_time` and `wait_interval`, you can optimize the admission process according to specific needs or preferences, ensuring a smooth experience for both hosts and attendees of your online meetings.
     
 6. ### **Check for UI Changes**: 
 
